@@ -1,0 +1,18 @@
+package bo;
+
+import java.sql.SQLException;
+
+import dao.khachhangdao;
+
+public class khachhangbo {
+	public int DangKyKh(String hoTen, String diaChi, String soDt, String Email, String tenDn, String Pass) {
+		try {
+			khachhangdao khdao = new khachhangdao();
+			return khdao.dangKy(hoTen, diaChi, soDt, Email, tenDn, Pass);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+	}
+}

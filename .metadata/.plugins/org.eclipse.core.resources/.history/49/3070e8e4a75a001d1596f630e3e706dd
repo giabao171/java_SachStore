@@ -1,0 +1,11 @@
+package bo;
+
+import dao.khachhangdao;
+
+public class khachhangbo {
+	public int DangKyKh(String hoTen, String diaChi, String soDt, String Email, String tenDn, String Pass) {
+		khachhangdao khdao = new khachhangdao();
+		int kq = khdao.dangKy(hoTen, diaChi, soDt, Email, tenDn, Pass);
+		return kq;
+	}
+}

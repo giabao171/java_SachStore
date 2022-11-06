@@ -1,0 +1,11 @@
+package bo;
+
+import bean.taikhoanbean;
+import dao.taikhoandao;
+
+public class taikhoanbo {
+	public taikhoanbean DangNhap (String tDN, String mK) {
+		taikhoandao tkdn = new taikhoandao();
+		return tkdn.ktDangNhap(tDN, mK);
+	}
+}

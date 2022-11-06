@@ -1,0 +1,30 @@
+package dao;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import bean.taikhoanbean;
+
+public class taikhoandao {
+	public taikhoanbean ktDangNhap(String tenDN, String Mk) throws SQLException{
+		KetNoi kn = new KetNoi();
+		kn.KetNoi();
+		String sql="select * from DangNhap where TenDangNhap = ? and MatKhau = ?";
+		PreparedStatement cmd = kn.cn.prepareStatement(sql);
+		//Truyen cau lenh vao tham so
+		cmd.setString(1,tenDN);
+        cmd.setString(2,Mk);
+        //Thuc hien
+		ResultSet rs = cmd.executeQuery();
+		taikhoanbean tk = null;
+        while (rs.next()){
+        	String tenDangNhap = rs.getString("TenDangNhap");
+        	String matKhau = rs.getString("MatKhau");
+        	Boolean quyen = rs.getBoolean("Quyen");
+            tk= new taikhoanbean(tenDangNhap, matKhau, quyen);
+        }
+        rs.close();
+		return tk;
+	}
+}

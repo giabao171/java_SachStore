@@ -1,0 +1,9 @@
+package dao;
+
+
+
+public class taikhoandao {
+	public taikhoandao ktDangNhap(String TenDangNhap, String MatKhau){
+		String sql="select * from TaiKhoan where SoTaiKhoan = ? and MatKhau = ?";
+	}
+}

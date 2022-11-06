@@ -1,0 +1,150 @@
+<%@page import="bean.sachbean"%>
+<%@page import="bean.loaibean"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="bo.loaibo"%>
+<%@page import="bo.sachbo"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Trang chủ</a></li>
+      
+      <li><a href="htgio.jsp">Giỏ hàng</a></li>
+      <li><a href="#">Thanh toán</a></li>
+      <li><a href="#">Lịch sử mua hàng</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li>
+      <%if(session.getAttribute("dn")==null){ %>
+      <a href="ktdn">
+      <span class="glyphicon glyphicon-log-in"></span>
+       Login
+       </a>
+       <%}else{ %>
+       <a href="sachserverlet">
+	      <span class="glyphicon glyphicon-log-in"></span>
+	       Hi: <%=session.getAttribute("dn") %>
+	       </a>
+	       <%} %>
+       </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<table align="center" class="table">
+   <tr>
+      <td width="200" align="top" > Loai sach
+      <table >
+      <%loaibo lbo=new loaibo();
+      	sachbo sbo=new sachbo();
+      	
+      	 //ArrayList<sachbean> dssach=sbo.getsach();
+      	//ArrayList<loaibean> dsloai=lbo.getloai();    	
+ 		ArrayList<loaibean> dsloai = new ArrayList<loaibean>();
+ 		ArrayList<sachbean> dssach = new ArrayList<sachbean>();
+ 		
+      	if(request.getAttribute("dsloai") != null){
+      		dsloai = (ArrayList<loaibean>) request.getAttribute("dsloai");
+      	}
+     System.out.println(request.getAttribute("dsloai"));
+      	
+        for(loaibean l: dsloai){
+    	 //  for(int i=0; i<re)
+      %>
+          <tr class="list-group">
+           <td class="list-group-item">
+            <a href="sachserverlet?ml=<%=l.getMaloai()%>"> 
+              <%=l.getTenloai() %>
+             </a>
+          </td>
+          </tr>
+          <%} %>
+       </table>
+    </td>
+      <td width="600" valign="top"> Hien thi sach 
+     	<table class="table">
+      <%
+      request.setCharacterEncoding("utf-8");
+      response.setCharacterEncoding("utf-8");
+      
+      
+        String ml=request.getParameter("ml");
+        //String key=request.getParameter("txttk");
+        
+        if(request.getAttribute("dsloai") != null){
+      		dssach = (ArrayList<sachbean>)request.getAttribute("dssach");
+      	}
+        System.out.println("ghjk"+request.getAttribute("dssach"));
+        
+        /* if(ml!=null)
+        	dssach=sbo.TimMa(ml);
+        else
+        	if(key!=null)
+        		dssach=sbo.Tim(key);
+        */
+        /* int n=dssach.size();
+        for(int i=0;i<n;i++){
+        	sachbean s=dssach.get(i);  */
+       %>
+        <%--  <tr >
+         <td >
+            <img src="<%=s.getAnh() %>"> <br>
+            <%=s.getTensach() %> <br>
+            <%=s.getTacgia() %> <br>
+            <%=s.getGia() %> <br>
+            <a href="giohang.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&gia=<%=s.getGia()%>">
+               <img src="mua.jpg">
+            </a>
+            
+            <img  src="buynow.jpg">
+         </td>
+         <%i++;
+         if(i<n){
+         s=dssach.get(i);%>
+         <td>
+            <img src="<%=s.getAnh() %>"> <br>
+            <%=s.getTensach() %> <br>
+            <%=s.getTacgia() %> <br>
+            <%=s.getGia() %> <br>
+            <a href="giohang.jsp?ms=<%=s.getMasach()%>&ts=<%=s.getTensach()%>&gia=<%=s.getGia()%>">
+               <img src="mua.jpg">
+            </a>
+            
+            <img  src="buynow.jpg">
+         </td> --%>
+        <%--  <%} %>
+         </tr>
+       <%} %> --%>
+       </table>
+
+      	</td>
+      <td width="200" valign="top"> Tim Kiem 
+      	<form action="sachserverlet" method="post" class="form-inline" style="display: flex">
+ 		 <input  name="txttk" type="text" value="" placeholder="Nhap tt" class="form-control"> <br>
+  		 <input name="butt" type="submit" value="Search" class="btn btn-primary">
+		</form>
+      	
+      </td>
+   </tr>
+
+</table>
+</body>
+
+</html>

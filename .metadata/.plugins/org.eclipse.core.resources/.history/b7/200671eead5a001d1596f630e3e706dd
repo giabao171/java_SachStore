@@ -1,0 +1,25 @@
+package dao;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class khachhangdao {
+
+	public int dangKy(String hoTen, String diaChi, String soDt, String Email, String tenDn, String Pass)throws SQLException {
+		KetNoi kn = new KetNoi();
+		kn.KetNoi();
+		String sql="insert into KhachHang(hoten,diachi,sodt,email,tendn,pass) values (?,?,?,?,?,?)";
+		PreparedStatement cmd = kn.cn.prepareStatement(sql);
+		
+		//Truyen cau lenh vao tham so
+		cmd.setString(1,hoTen);
+		cmd.setString(2,diaChi);
+		cmd.setString(3,soDt);
+		cmd.setString(4,Email);
+		cmd.setString(5,tenDn);
+		cmd.setString(6,Pass);
+		
+		return cmd.executeUpdate();
+	}
+	
+}

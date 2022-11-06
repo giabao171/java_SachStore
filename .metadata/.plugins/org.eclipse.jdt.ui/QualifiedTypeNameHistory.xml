@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="dao.sachdao"/>
+    <fullyQualifiedTypeName name="dao.loaidao"/>
+    <fullyQualifiedTypeName name="dao.monhocdao"/>
+    <fullyQualifiedTypeName name="bean.monhocbean"/>
+    <fullyQualifiedTypeName name="dao.sinhviendao"/>
+    <fullyQualifiedTypeName name="bean.sinhvienbean"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="bo.loaibo"/>
+    <fullyQualifiedTypeName name="bo.sachbo"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Enumeration"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.sun.jdi.connect.spi.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="bean.loaibean"/>
+    <fullyQualifiedTypeName name="bean.sachbean"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="javax.websocket.Session"/>
+    <fullyQualifiedTypeName name="javax.security.auth.message.callback.PrivateKeyCallback.Request"/>
+    <fullyQualifiedTypeName name="bean.taikhoanbean"/>
+    <fullyQualifiedTypeName name="java.security.MessageDigest"/>
+    <fullyQualifiedTypeName name="java.math.BigInteger"/>
+    <fullyQualifiedTypeName name="java.security.NoSuchAlgorithmException"/>
+    <fullyQualifiedTypeName name="dao.taikhoandao"/>
+    <fullyQualifiedTypeName name="bo.taikhoanbo"/>
+    <fullyQualifiedTypeName name="dao.khachhangdao"/>
+    <fullyQualifiedTypeName name="bo.khachhangbo"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="dao.KetNoi"/>
+    <fullyQualifiedTypeName name="dao.hoadondao"/>
+    <fullyQualifiedTypeName name="bo.chitiethoadondao"/>
+    <fullyQualifiedTypeName name="bean.khachhangbean"/>
+    <fullyQualifiedTypeName name="bo.hoadonbo"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="bo.chitiethoadonbo"/>
+    <fullyQualifiedTypeName name="bean.hoadonbean"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="dao.chitiethoadondao"/>
+    <fullyQualifiedTypeName name="bean.giohangbean"/>
+    <fullyQualifiedTypeName name="bo.giohangbo"/>
+</qualifiedTypeNameHistroy>

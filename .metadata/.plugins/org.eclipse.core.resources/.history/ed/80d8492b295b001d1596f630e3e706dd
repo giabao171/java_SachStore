@@ -1,0 +1,7 @@
+package bo;
+
+public class chitiethoadondao {
+	public int ThemCTHD(String maSach, Long soLuongMua, Long maHoaDon, Boolean damua) {
+		
+	}
+}

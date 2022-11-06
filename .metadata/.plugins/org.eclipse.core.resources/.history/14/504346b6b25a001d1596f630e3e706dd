@@ -1,0 +1,30 @@
+package bo;
+
+import java.sql.SQLException;
+
+import bean.khachhangbean;
+import dao.khachhangdao;
+
+public class khachhangbo {
+	
+	public int DangKyKh(String hoTen, String diaChi, String soDt, String Email, String tenDn, String Pass) {
+		khachhangdao khdao = new khachhangdao();
+		try {
+			return khdao.dangKy(hoTen, diaChi, soDt, Email, tenDn, Pass);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	public khachhangbean DangNhapKh(String tendn, String pass) {
+		khachhangdao khd = new khachhangdao();
+		try {
+			return khd.ktDangNhap(tendn, pass);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+}

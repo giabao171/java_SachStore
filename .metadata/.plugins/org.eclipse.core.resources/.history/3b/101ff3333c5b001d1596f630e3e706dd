@@ -1,0 +1,12 @@
+package bean;
+
+public class chitiethoadonbean {
+	private Long MaChiTietHD;
+	private String MaSach;
+	private int SoLuongMua;
+	private Long MaHoaDon;
+	private Boolean damua;
+	
+	
+	
+}

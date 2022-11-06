@@ -1,0 +1,27 @@
+package bo;
+
+import java.util.Date;
+
+import dao.hoadondao;
+
+public class hoadonbo {
+	public int ThemHD(Long makh, Date ngayMua, Boolean damua) {
+		hoadondao hddao = new hoadondao();
+		try {
+			return hddao.Them(makh, ngayMua, damua);
+		} catch (Exception e) {
+			// TODO: handle exception
+			return 0;
+		}
+	}
+	
+	public long MaHoaDon() {
+		hoadondao hddao = new hoadondao();
+		try {
+			return hddao.getMHD();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return 0;
+		}
+	}
+}

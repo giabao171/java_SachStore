@@ -1,0 +1,21 @@
+package bean;
+
+public class taikhoanbean {
+	private String TenDangNhap;
+	private String MatKhau;
+	private Boolean Quyen;
+	public taikhoanbean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public taikhoanbean(String tenDangNhap, String matKhau, Boolean quyen) {
+		super();
+		TenDangNhap = tenDangNhap;
+		MatKhau = matKhau;
+		Quyen = quyen;
+	}
+	
+	
+	
+	
+}

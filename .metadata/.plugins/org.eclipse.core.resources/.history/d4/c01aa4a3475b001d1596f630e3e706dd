@@ -1,0 +1,128 @@
+package Controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.giohangbean;
+import bean.khachhangbean;
+import bean.loaibean;
+import bo.chitiethoadonbo;
+import bo.giohangbo;
+import bo.hoadonbo;
+import bo.loaibo;
+
+/**
+ * Servlet implementation class xoasuaControler
+ */
+@WebServlet("/xoasuaControler")
+public class xoasuaControler extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public xoasuaControler() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	
+		HttpSession session= request.getSession();
+		giohangbo gh=(giohangbo)session.getAttribute("gio");
+	    /* while(d.hasMoreElements()){
+		   String tendk=d.nextElement();
+		   if(request.getParameter(tendk)!=null){
+			    String gt=request.getParameter(tendk);
+		        out.println(tendk+":"+gt+"<br>");  */  
+		        
+		        	
+		        	
+		        	if(request.getParameter("butsua") != null) {
+		        		String masach = request.getParameter("butsua");
+		        		String tentb="t"+masach;
+			        	long soluong = Long.parseLong(request.getParameter(tentb));
+			        	if(soluong == 0)
+			        		gh.Xoasach(masach);
+			        	else
+		        			gh.Soluong(masach, soluong);
+		        	
+		        		
+		        	}
+		        	else 
+		        		if(request.getParameter("butxoa") != null){
+		        			String masach = request.getParameter("butxoa");
+		        			gh.Xoasach(masach);
+		        			
+		        		}
+		        		else 
+		        			if(request.getParameter("xoaall") != null) {
+		        				String[] gtcheck=request.getParameterValues("check");
+		        				if (gtcheck != null) {
+		        					for(String ss: gtcheck)
+			        		   			   gh.Xoasach(ss);
+		        				}
+			        		   	else {
+			        		   		gh.Xoaall();
+			        		   	}
+		        			}
+		        			else 
+		        				if(request.getParameter("xnmua") != null) {
+		        					if (session.getAttribute("dn") != null && session.getAttribute("gio") != null) {
+		        						khachhangbean khbean = (khachhangbean)session.getAttribute("dn");
+		        						hoadonbo hdbo = new hoadonbo();
+		        						Date d=new Date(); 
+		        						int themhd = hdbo.ThemHD(khbean.getMakh(), d, true);
+		        						
+//		        						if(themhd == 1) {
+		        							if(gh!=null) {
+		        								
+		        								chitiethoadonbo cthdbo = new chitiethoadonbo();
+		        								int a=22;
+		        								long b=27;
+		        								int themcthd = cthdbo.ThemCTHD("b1", a, b, false);
+		        								System.out.println("1");
+		        							}	
+												/*
+												 * for(giohangbean s : gh.ds){ int themcthd =
+												 * cthdbo.ThemCTHD(s.getMasach(), s.getSoluong(), hdbo.MaHoaDon(),
+												 * false); }
+												 */
+		        							
+//		        						}
+		        					}
+		        				}
+		        			
+		        
+		        	session.setAttribute("gio", gh);
+		        	if(gh.ds.size() == 0)
+		        		response.sendRedirect("sachserverlet");
+		        	else
+		        		response.sendRedirect("giohangcontroler");  
+			
+	}
+		
+		
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

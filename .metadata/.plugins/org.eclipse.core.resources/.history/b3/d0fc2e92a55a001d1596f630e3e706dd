@@ -1,0 +1,6 @@
+package bean;
+
+public class khachhangbean {
+	private long makh;
+	
+}

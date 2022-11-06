@@ -1,0 +1,18 @@
+package bo;
+
+import java.sql.SQLException;
+
+import bean.taikhoanbean;
+import dao.taikhoandao;
+
+public class taikhoanbo {
+	public taikhoanbean DangNhap (String tDN, String mK) {
+		taikhoandao tkdn = new taikhoandao();
+		try {
+			return tkdn.ktDangNhap(tDN, mK);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
